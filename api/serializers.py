@@ -15,7 +15,15 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'name']
 
 
+class NotaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Nota
+        fields = ['id', 'materia', 'nota']
+
+
 class AlunoSerializer(serializers.HyperlinkedModelSerializer):
+    notas = NotaSerializer(many=True, read_only=True)
+
     class Meta:
         model = Aluno
-        fields = ['url', 'id', 'nome', 'nascimento', 'filiacao', 'residencia']
+        fields = ['id', 'nome', 'nascimento', 'filiacao', 'residencia', 'notas']

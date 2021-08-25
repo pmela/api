@@ -26,3 +26,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+
+
+class NotaViewSet(viewsets.ModelViewSet):
+    queryset = Nota.objects.all()
+    serializer_class = NotaSerializer
